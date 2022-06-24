@@ -11,6 +11,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
 const SECRET_JWT = "b02DSFsfdsFDSSDE423kli4ret23SDFS23"
 const myDB = {
     users: [
@@ -19,7 +20,7 @@ const myDB = {
             name: "Luiz",
             email: "luizvictor1231@gmail.com",
             password: "lv1231",
-            acess: "admin"
+            acess: "admin" //admin
         },
         {
             id: 10,
@@ -46,7 +47,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/games', auth, (req, res) => {
-    res.json(myDB.games)
+    
+    const userData = req.loggedUser
+
+    res.json([myDB.games, userData])
 })
 
 app.post('/auth', (req, res) => {

@@ -16,15 +16,20 @@ const auth = (req, res, next) => {
                 res.status(401)
                 res.json({error: "Verify: Invalid Token!"})
             } else {
-                console.log(data)
+                if (data.acess !== "admin"){
+                    res.json({message: "Você não tem acesso!"})
+                    return res.status(401)
+                }
+
+                req.token = token
+                req.loggedUser = { id: data.id, email: data.email, acess: data.acess }
+                next()
             }
         })
     } else {
         res.status(401)
         res.json({error: "Token not exist!"})  
     }
-
-    next()
 }
 
 module.exports = auth
