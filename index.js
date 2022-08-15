@@ -18,15 +18,15 @@ const myDB = {
         {
             id: 1,
             name: "Luiz",
-            email: "luizvictor1231@gmail.com",
+            email: "luizemail@email.com",
             password: "lv1231",
             acess: "admin" //admin
         },
         {
             id: 10,
-            name: "Luan",
-            email: "luan321@gmail.com",
-            password: "ln321",
+            name: "Lucas",
+            email: "lucasemail@email.com",
+            password: "lc321",
             acess: "guest"
         }
     ],
